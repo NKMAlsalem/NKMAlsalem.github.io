@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "./LanguageProvider";
+import { ThemeToggle } from "./ThemeToggle";
 import type { Lang } from "@/content/copy";
 
 const links = ["case", "platform", "approach", "skills", "contact"] as const;
@@ -24,6 +25,7 @@ export function Nav() {
               </li>
             ))}
           </ul>
+          <ThemeToggle />
           <div role="group" aria-label="Language" className="inline-flex overflow-hidden rounded-md border border-line">
             {options.map((option) => (
               <button

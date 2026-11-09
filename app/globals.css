@@ -22,7 +22,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: 14 21 18;
     --surface: 21 31 27;
     --ink: 226 234 230;
@@ -36,6 +36,21 @@
     --crit-soft: 58 29 25;
     color-scheme: dark;
   }
+}
+
+:root[data-theme="dark"] {
+  --bg: 14 21 18;
+  --surface: 21 31 27;
+  --ink: 226 234 230;
+  --muted: 147 165 156;
+  --line: 38 53 46;
+  --accent: 92 192 143;
+  --accent-soft: 23 51 39;
+  --amber: 224 165 90;
+  --amber-soft: 54 40 22;
+  --crit: 238 133 118;
+  --crit-soft: 58 29 25;
+  color-scheme: dark;
 }
 
 :root[lang="ar"] {

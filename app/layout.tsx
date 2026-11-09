@@ -17,11 +17,16 @@ export const metadata: Metadata = {
   description: "GRC portfolio of Naif Alsalem: an NCA ECC compliance case study in Arabic and English, and an ECC compliance platform.",
 };
 
+const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
+
 export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" dir="ltr">
+    <html lang="en" dir="ltr" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
