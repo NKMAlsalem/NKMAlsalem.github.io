@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 241 244 242;
+  --surface: 255 255 255;
+  --ink: 20 33 28;
+  --muted: 90 106 99;
+  --line: 211 220 215;
+  --accent: 29 106 76;
+  --accent-soft: 220 237 228;
+  --amber: 169 102 26;
+  --amber-soft: 246 232 212;
+  --crit: 166 58 46;
+  --crit-soft: 245 222 218;
+  --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --font-label: var(--font-mono);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: 14 21 18;
+    --surface: 21 31 27;
+    --ink: 226 234 230;
+    --muted: 147 165 156;
+    --line: 38 53 46;
+    --accent: 92 192 143;
+    --accent-soft: 23 51 39;
+    --amber: 224 165 90;
+    --amber-soft: 54 40 22;
+    --crit: 238 133 118;
+    --crit-soft: 58 29 25;
+    color-scheme: dark;
+  }
+}
+
+:root[lang="ar"] {
+  --font-display: "Noto Kufi Arabic", Tahoma, Arial, sans-serif;
+  --font-body: "Noto Kufi Arabic", Tahoma, Arial, sans-serif;
+  --font-label: "Noto Kufi Arabic", Tahoma, Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--ink));
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+}
+:root[lang="ar"] body { font-size: 16px; line-height: 1.85; }
+
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; letter-spacing: -0.02em; }
+:root[lang="ar"] :is(h1, h2, h3) { letter-spacing: 0; }
+
+a:focus-visible, button:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 3px; border-radius: 4px; }
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-page; padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)); }
+  .eyebrow { @apply font-label text-xs uppercase tracking-[0.08em] text-muted; }
+  :root[lang="ar"] .eyebrow { @apply text-[13px] normal-case tracking-normal; }
+  .chip { @apply whitespace-nowrap rounded-full bg-accent-soft px-2.5 py-1 font-label text-xs text-accent; }
+  .chip-amber { @apply bg-amber-soft text-amber; }
+  .card { @apply overflow-hidden rounded-lg border border-line bg-surface; }
+  .btn { @apply inline-flex items-center rounded-md border-[1.5px] border-ink px-5 py-3 text-[15px] font-semibold text-ink transition-colors hover:border-accent; }
+  .btn-primary { @apply bg-ink text-bg hover:bg-accent; }
+  .btn-sm { @apply rounded border border-ink px-3 py-1.5 text-[13px] font-medium text-ink transition-colors hover:border-accent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
