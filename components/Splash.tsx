@@ -75,7 +75,7 @@ export function Splash() {
               <div lang="ar" dir="rtl" className="grid content-start gap-2.5 border-t border-line pt-6 sm:border-s sm:border-t-0 sm:ps-8 sm:pt-0" style={{ fontFamily: "'Noto Kufi Arabic', Tahoma, sans-serif" }}>
                 <h2 className="text-xl font-bold leading-relaxed" style={{ letterSpacing: 0 }}>هذا ملف أعمال، وليس موقع شركة.</h2>
                 <p className="text-[14px] leading-7 text-muted">
-                  أعدّه نايف السالم لعرض أعماله في الحوكمة والمخاطر والالتزام. شركة قيروان لأنظمة المعلومات وعملاؤها افتراضيون، أُنشئوا لدراسة الحالة.
+                  أعدّه نايف السالم لعرض أعماله في الحوكمة والمخاطر والالتزام. شركة القيروان لنظم المعلومات وعملاؤها افتراضيون، أُنشئوا لدراسة الحالة.
                 </p>
               </div>
             </div>
