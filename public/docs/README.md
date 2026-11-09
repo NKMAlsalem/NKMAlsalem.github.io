@@ -1,8 +1,8 @@
-# Published documents
+# Documents
 
-Only version 1.0 documents go here.
+Every version of every document lives here, so visitors can see how each one developed.
 
-- Word documents: export to PDF, one file per language, e.g. `QIS-RMM-001_EN_v1.0.pdf` and `QIS-RMM-001_AR_v1.0.pdf`.
-- Workbooks (risk register, dashboard): one bilingual file, e.g. `QIS-RR-001_v1.0.xlsx`.
+- Word documents: one PDF per language and version, e.g. `QIS-RMM-001_EN_v0.2.pdf` and `QIS-RMM-001_AR_v0.2.pdf`.
+- Workbooks (risk register, dashboard): one bilingual file per version, e.g. `QIS-RR-001_v0.2.xlsx`.
 
-Then set the document's `status` to `"published"` in `data/documents.ts`.
+To add a version, put its files here and add it at the top of that document's `versions` list in `data/documents.ts`.

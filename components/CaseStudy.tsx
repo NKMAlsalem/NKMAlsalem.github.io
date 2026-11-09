@@ -17,7 +17,11 @@ export function CaseStudy() {
           </div>
         </SectionHead>
       </Reveal>
-      <div className="mb-11 grid items-start gap-10 md:grid-cols-2">
+      <Reveal>
+        <DocumentRegister />
+      </Reveal>
+      <p className="mt-3.5 text-sm text-muted">{t.case.note}</p>
+      <div className="mt-12 grid items-start gap-10 md:grid-cols-2">
         <Reveal className="grid min-w-0 gap-3.5">
           {t.case.story.map((p) => <p key={p.slice(0, 24)} className="max-w-[65ch] text-base text-muted">{p}</p>)}
         </Reveal>
@@ -25,10 +29,6 @@ export function CaseStudy() {
           <Register title={t.case.recordTitle} aside={<span className="eyebrow">QIS</span>} rows={t.case.record} />
         </Reveal>
       </div>
-      <Reveal>
-        <DocumentRegister />
-      </Reveal>
-      <p className="mt-3.5 text-sm text-muted">{t.case.note}</p>
     </Section>
   );
 }

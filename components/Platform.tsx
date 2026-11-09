@@ -89,10 +89,6 @@ export function Platform() {
         </div>
       </Reveal>
       <p className="mt-3.5 text-sm text-muted">{t.platform.note}</p>
-      <div className="mt-7 flex flex-wrap gap-5 font-semibold">
-        <a href="#" className="text-accent">{t.platform.demo}</a>
-        <a href="https://github.com/NKMAlsalem" className="text-accent" target="_blank" rel="noopener noreferrer">{t.platform.source}</a>
-      </div>
     </Section>
   );
 }

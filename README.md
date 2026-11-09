@@ -6,8 +6,8 @@ Personal portfolio for governance, risk and compliance (GRC) roles, available in
 
 ## What's inside
 
-- **QIS case study.** A full NCA ECC-2:2024 compliance program for Qayrawan Information Systems, a fictional Riyadh government IT vendor: company profile, risk methodology and register, cybersecurity charter, policies, incident response and business continuity. Each document is written in Arabic first and published in both languages once it reaches version 1.0.
-- **Document register** with an in-page PDF reader and downloads.
+- **QIS case study.** A full NCA ECC-2:2024 compliance program for Qayrawan Information Systems, a fictional Riyadh government IT vendor: company profile, risk methodology and register, cybersecurity charter, policies, incident response and business continuity. Each document is written in Arabic first, published in both languages, and every earlier version stays available.
+- **Document register** with an in-page PDF reader, downloads, and the full version history of each document.
 - **ECC Compliance Platform** summary, with an interactive example of how an endpoint signal is traced to an ECC subdomain and a recommended action.
 - Full right-to-left layout when switching to Arabic.
 
@@ -39,10 +39,10 @@ npm run dev      # http://localhost:3000
 npm run build    # static site in out/
 ```
 
-## Publishing a document
+## Publishing a new version
 
-1. Export the v1.0 document to PDF in both languages and add it to `public/docs/` (see the README there for file names).
-2. Set its `status` to `"published"` in `data/documents.ts`.
+1. Export the document to PDF in both languages and add the files to `public/docs/` (see the README there for file names).
+2. Add the version at the top of that document's `versions` list in `data/documents.ts`.
 3. Push to `main`. The workflow builds and deploys the site.
 
 ## Note
