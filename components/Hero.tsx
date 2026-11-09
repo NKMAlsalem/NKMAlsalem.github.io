@@ -41,7 +41,7 @@ export function Hero() {
         </motion.div>
       </div>
       <motion.div className="min-w-0" {...rise(0.3)}>
-        <Register title={t.hero.registerTitle} aside={<span className="eyebrow" dir="ltr">QIS</span>} rows={rows} />
+        <Register title={t.hero.registerTitle} aside={<span className="label" dir="ltr">QIS</span>} rows={rows} />
       </motion.div>
     </section>
   );

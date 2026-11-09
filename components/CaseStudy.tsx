@@ -26,7 +26,7 @@ export function CaseStudy() {
           {t.case.story.map((p) => <p key={p.slice(0, 24)} className="max-w-[65ch] text-base text-muted">{p}</p>)}
         </Reveal>
         <Reveal delay={0.08} className="min-w-0">
-          <Register title={t.case.recordTitle} aside={<span className="eyebrow">QIS</span>} rows={t.case.record} />
+          <Register title={t.case.recordTitle} aside={<span className="label">QIS</span>} rows={t.case.record} />
         </Reveal>
       </div>
     </Section>

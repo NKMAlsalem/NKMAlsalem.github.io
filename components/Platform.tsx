@@ -36,11 +36,11 @@ export function Platform() {
         ))}
       </div>
 
-      <p className="eyebrow mb-3.5">{t.platform.traceLabel}</p>
+      <p className="label mb-3.5">{t.platform.traceLabel}</p>
       <Reveal>
         <div className="card grid md:grid-cols-[300px_1fr]">
           <div role="tablist" aria-label={t.platform.signal} className="grid content-start border-b border-line md:border-b-0 md:border-e">
-            <p className="eyebrow px-[18px] pb-2.5 pt-4">{t.platform.signal}</p>
+            <p className="label px-[18px] pb-2.5 pt-4">{t.platform.signal}</p>
             {signals.map((s, i) => (
               <button
                 key={s.evidence}
@@ -76,11 +76,11 @@ export function Platform() {
                   </Step>
                 </div>
                 <div className="grid gap-1.5">
-                  <span className="eyebrow">{t.platform.expects}</span>
+                  <span className="label">{t.platform.expects}</span>
                   <p>{text.requirement}</p>
                 </div>
                 <div className="grid gap-1.5 border-t border-line pt-[18px]">
-                  <span className="eyebrow">{t.platform.action}</span>
+                  <span className="label">{t.platform.action}</span>
                   <p>{text.fix}</p>
                 </div>
               </motion.div>
@@ -96,7 +96,7 @@ export function Platform() {
 function Step({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="grid min-w-0 content-start gap-1.5 rounded-md border border-line px-3.5 py-3">
-      <span className="eyebrow">{label}</span>
+      <span className="label">{label}</span>
       {children}
     </div>
   );

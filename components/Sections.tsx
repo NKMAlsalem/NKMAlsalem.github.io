@@ -116,7 +116,7 @@ export function Contact() {
 function ContactRow({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line py-3.5">
-      <span className="eyebrow">{label}</span>
+      <span className="label">{label}</span>
       {children}
     </div>
   );

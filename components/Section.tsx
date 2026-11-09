@@ -22,13 +22,13 @@ export function Register({ title, aside, rows, keyWidth = "112px" }: { title: st
   return (
     <aside className="card">
       <div className="flex justify-between gap-3 border-b border-line px-[18px] py-3">
-        <span className="eyebrow">{title}</span>
+        <span className="label">{title}</span>
         {aside}
       </div>
       <dl>
         {rows.map(([key, value]) => (
           <div key={key} className="grid gap-3.5 border-b border-line px-[18px] py-[13px] text-[15px] last:border-b-0" style={{ gridTemplateColumns: `${keyWidth} 1fr` }}>
-            <dt className="eyebrow pt-[3px]">{key}</dt>
+            <dt className="label pt-[3px]">{key}</dt>
             <dd className="min-w-0">{value}</dd>
           </div>
         ))}

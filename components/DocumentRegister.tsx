@@ -30,15 +30,15 @@ export function DocumentRegister() {
     <>
       <div id="documents" className="card scroll-mt-24" aria-label={t.docs.title}>
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-[18px] py-3">
-          <span className="eyebrow">{t.docs.title}</span>
-          <span className="eyebrow tabular-nums">{t.docs.count(available.length)}</span>
+          <span className="label">{t.docs.title}</span>
+          <span className="label tabular-nums">{t.docs.count(available.length)}</span>
         </div>
         {phases.map((phase) => {
           const items = documents.filter((d) => d.phase === phase);
           if (items.length === 0) return null;
           return (
             <div key={phase}>
-              <div className="eyebrow border-b border-line bg-bg px-[18px] py-2.5">{t.docs.phases[phase]}</div>
+              <div className="label border-b border-line bg-bg px-[18px] py-2.5">{t.docs.phases[phase]}</div>
               {items.map((doc) => (
                 <DocumentRow key={doc.id} doc={doc} onOpen={(version) => setOpened({ doc, version })} />
               ))}
@@ -69,14 +69,14 @@ export function DocumentRegister() {
             >
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-4 py-3">
                 <div className="grid min-w-0">
-                  <span className="eyebrow">
+                  <span className="label">
                     <span dir="ltr">{opened.doc.id}</span> · <VersionLabel version={opened.version} />
                   </span>
                   <strong id="viewer-title" className="truncate">{opened.doc.title[lang]}</strong>
                 </div>
                 <div className="flex gap-2">
                   <a className="btn-sm no-underline" href={versionFile(opened.doc, opened.version, lang)} download>{t.docs.downloadPdf}</a>
-                  <button type="button" className="btn-sm bg-ink text-bg" onClick={() => setOpened(null)}>{t.docs.close}</button>
+                  <button type="button" className="btn-sm solid" onClick={() => setOpened(null)}>{t.docs.close}</button>
                 </div>
               </div>
               <PdfViewer
@@ -111,7 +111,7 @@ function Actions({ doc, version, onOpen, small = false }: { doc: CaseDocument; v
   }
   return (
     <>
-      <button type="button" className={`btn-sm ${small ? "" : "bg-ink text-bg"} ${size}`} onClick={onOpen}>{t.docs.view}</button>
+      <button type="button" className={`btn-sm ${small ? "" : "solid"} ${size}`} onClick={onOpen}>{t.docs.view}</button>
       <a className={`btn-sm no-underline ${size}`} href={versionFile(doc, version, lang)} download>{t.docs.downloadPdf}</a>
     </>
   );
