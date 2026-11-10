@@ -107,8 +107,8 @@ const en = {
         ["PDPL and NCA and SDAIA AI guidance", "studied"],
       ] },
       { title: "Technical foundation", items: [
-        ["Full-stack web development (MVC)", "applied"],
-        ["Databases and data modeling", "applied"],
+        ["Full-stack web development (MVC, Entity Framework)", "applied"],
+        ["Relational database design: schemas and table relationships (SQL Server)", "applied"],
         ["Packet analysis with Wireshark, byte by byte", "applied"],
         ["Networking (degree focus)", "studied"],
         ["Linux and Kali Linux", "studied"],
@@ -256,8 +256,8 @@ const ar: Copy = {
         ["نظام حماية البيانات الشخصية وإرشادات الذكاء الاصطناعي", "studied"],
       ] },
       { title: "الأساس التقني", items: [
-        ["تطوير الويب المتكامل (MVC)", "applied"],
-        ["قواعد البيانات ونمذجة البيانات", "applied"],
+        ["تطوير الويب المتكامل (MVC وEntity Framework)", "applied"],
+        ["تصميم قواعد البيانات العلائقية: المخططات والعلاقات بين الجداول (SQL Server)", "applied"],
         ["تحليل الحزم بأداة Wireshark على مستوى البايت", "applied"],
         ["الشبكات (تخصص الدراسة الجامعية)", "studied"],
         ["لينكس وكالي لينكس", "studied"],
