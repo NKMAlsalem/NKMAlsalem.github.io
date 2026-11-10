@@ -109,7 +109,8 @@ const en = {
       { title: "Technical foundation", items: [
         ["Full-stack web development (MVC, Entity Framework)", "applied"],
         ["Relational database design: schemas and table relationships (SQL Server)", "applied"],
-        ["Networking (degree focus), with byte-level packet analysis in Wireshark", "applied"],
+        ["Networking (degree focus): switching and routing in GNS3 and Packet Tracer, byte-level packet analysis in Wireshark", "applied"],
+        ["Network services: email, FTP, SNMP and VoIP server setup", "applied"],
         ["Linux and Kali Linux", "studied"],
         ["Security lab design", "progress"],
       ] },
@@ -256,7 +257,8 @@ const ar: Copy = {
       { title: "الأساس التقني", items: [
         ["تطوير الويب المتكامل (MVC وEntity Framework)", "applied"],
         ["تصميم قواعد البيانات العلائقية: المخططات والعلاقات بين الجداول (SQL Server)", "applied"],
-        ["الشبكات (تخصص الدراسة الجامعية)، مع تحليل الحزم على مستوى البايت بأداة Wireshark", "applied"],
+        ["الشبكات (تخصص الدراسة الجامعية): التحويل والتوجيه في GNS3 وPacket Tracer، وتحليل الحزم على مستوى البايت بأداة Wireshark", "applied"],
+        ["خدمات الشبكات: إعداد خوادم البريد الإلكتروني وFTP وSNMP والاتصال الصوتي عبر الإنترنت (VoIP)", "applied"],
         ["لينكس وكالي لينكس", "studied"],
         ["تصميم معمل أمني", "progress"],
       ] },
