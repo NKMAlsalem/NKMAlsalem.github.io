@@ -63,12 +63,23 @@ export const documents: CaseDocument[] = [
   {
     id: "QIS-POL-001", phase: "govern",
     title: { en: "Data Protection Policy", ar: "سياسة حماية البيانات" },
-    versions: [{ version: "0.1", date: "2026-11-05", note: first }],
+    versions: [
+      { version: "0.2", date: "2026-11-10", langs: ["ar"], note: { en: "Rebuilt on the full policy template, mapped to ECC and DCC, PDPL alignment added", ar: "إعادة البناء على قالب السياسة الكامل، وربط البنود بالضوابط الأساسية وضوابط البيانات، وإضافة المواءمة مع نظام حماية البيانات الشخصية" } },
+      { version: "0.1", date: "2026-11-05", note: first },
+    ],
+  },
+  {
+    id: "QIS-PRC-001", phase: "govern",
+    title: { en: "Data Protection Procedure", ar: "إجراءات حماية البيانات" },
+    versions: [
+      { version: "0.1", date: "2026-11-10", langs: ["ar"], note: { en: "First draft: five procedures from contract review to secure disposal", ar: "المسودة الأولى: خمسة إجراءات من مراجعة العقود إلى الإتلاف الآمن" } },
+    ],
   },
   {
     id: "QIS-POL-002", phase: "govern",
     title: { en: "AI Usage Policy", ar: "سياسة استخدام الذكاء الاصطناعي" },
     versions: [
+      { version: "0.5", date: "2026-11-10", langs: ["ar"], note: { en: "Change-log fix, centred classification badge, new company name", ar: "تصحيح سجل التعديلات، وتوسيط شارة التصنيف، واعتماد اسم الشركة الجديد" } },
       { version: "0.4", date: "2026-11-09", langs: ["ar"], note: { en: "New visual identity, readability, and NCA's four sharing levels", ar: "الهوية البصرية الجديدة، وتحسين القراءة، ومستويات إشارة المشاركة الأربعة المعتمدة لدى الهيئة" } },
       { version: "0.3", date: "2026-11-09", langs: ["ar"], note: { en: "Rebuilt on the full policy template; steps moved to QIS-PRC-002", ar: "إعادة البناء على قالب السياسة الكامل، ونقل الخطوات إلى QIS-PRC-002" } },
       { version: "0.2", date: "2026-11-09", langs: ["ar"], note: { en: "Classification badge, watermark and sharing signal added", ar: "إضافة شارة التصنيف والعلامة المائية وإشارة المشاركة" } },
@@ -79,6 +90,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-PRC-002", phase: "govern",
     title: { en: "AI Usage Procedure", ar: "إجراءات استخدام الذكاء الاصطناعي" },
     versions: [
+      { version: "0.3", date: "2026-11-10", langs: ["ar"], note: { en: "Centred classification badge and new company name", ar: "توسيط شارة التصنيف واعتماد اسم الشركة الجديد" } },
       { version: "0.2", date: "2026-11-09", langs: ["ar"], note: { en: "New visual identity, readability, and NCA's four sharing levels", ar: "الهوية البصرية الجديدة، وتحسين القراءة، ومستويات إشارة المشاركة الأربعة المعتمدة لدى الهيئة" } },
       { version: "0.1", date: "2026-11-09", langs: ["ar"], note: { en: "First draft: five procedures from request to safe shutdown", ar: "المسودة الأولى: خمسة إجراءات من الطلب إلى الإيقاف الآمن" } },
     ],
