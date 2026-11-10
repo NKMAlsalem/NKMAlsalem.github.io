@@ -64,6 +64,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-POL-001", phase: "govern",
     title: { en: "Data Protection Policy", ar: "سياسة حماية البيانات" },
     versions: [
+      { version: "0.3", date: "2026-11-10", langs: ["ar"], note: { en: "Section 8 matched to the official ECC-2:2024 text", ar: "مطابقة القسم 8 مع النص الرسمي للضوابط الأساسية ECC-2:2024" } },
       { version: "0.2", date: "2026-11-10", langs: ["ar"], note: { en: "Rebuilt on the full policy template, mapped to ECC and DCC, PDPL alignment added", ar: "إعادة البناء على قالب السياسة الكامل، وربط البنود بالضوابط الأساسية وضوابط البيانات، وإضافة المواءمة مع نظام حماية البيانات الشخصية" } },
       { version: "0.1", date: "2026-11-05", note: first },
     ],
@@ -72,6 +73,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-PRC-001", phase: "govern",
     title: { en: "Data Protection Procedure", ar: "إجراءات حماية البيانات" },
     versions: [
+      { version: "0.2", date: "2026-11-10", langs: ["ar"], note: { en: "References updated to the ECC-2:2024 numbering", ar: "تحديث الإحالات وفق ترقيم الإصدار 2024 من الضوابط الأساسية" } },
       { version: "0.1", date: "2026-11-10", langs: ["ar"], note: { en: "First draft: five procedures from contract review to secure disposal", ar: "المسودة الأولى: خمسة إجراءات من مراجعة العقود إلى الإتلاف الآمن" } },
     ],
   },
