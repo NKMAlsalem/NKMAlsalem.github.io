@@ -29,6 +29,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-PRF-001", phase: "context",
     title: { en: "Company Profile and Program Scope", ar: "ملف الشركة ونطاق البرنامج" },
     versions: [
+      { version: "0.3", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } },
       { version: "0.2", date: "2026-11-04", note: { en: "Open items resolved; contractors and the Jeddah office added", ar: "حسم البنود المفتوحة، وإضافة المتعاقدين ومكتب جدة" } },
       { version: "0.1", date: "2026-10-24", note: first },
     ],
@@ -38,6 +39,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-RMM-001", phase: "assess",
     title: { en: "Risk Management Methodology", ar: "منهجية إدارة المخاطر" },
     versions: [
+      { version: "0.3", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } },
       { version: "0.2", date: "2026-11-09", note: catastrophic },
       { version: "0.1", date: "2026-11-04", note: first },
     ],
@@ -46,6 +48,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-RR-001", phase: "assess", format: "xlsx",
     title: { en: "Risk Register", ar: "سجل المخاطر" },
     versions: [
+      { version: "0.3", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } },
       { version: "0.2", date: "2026-11-09", note: catastrophic },
       { version: "0.1", date: "2026-11-04", note: { en: "First draft: 20 risks scored on the 5×5 matrix", ar: "المسودة الأولى: 20 خطراً مقيّمة بمصفوفة 5×5" } },
     ],
@@ -56,6 +59,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-CHR-001", phase: "govern",
     title: { en: "Cybersecurity Charter and Structure", ar: "ميثاق الأمن السيبراني وهيكله التنظيمي" },
     versions: [
+      { version: "0.3", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } },
       { version: "0.2", date: "2026-11-09", note: catastrophic },
       { version: "0.1", date: "2026-11-05", note: first },
     ],
@@ -101,6 +105,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-IRP-001", phase: "operate",
     title: { en: "Incident Response Plan", ar: "خطة الاستجابة للحوادث السيبرانية" },
     versions: [
+      { version: "0.3", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } },
       { version: "0.2", date: "2026-11-09", note: { en: "NCA deadline source updated; breach notice now covers every personal data breach", ar: "تحديث مصدر مهلة إبلاغ الهيئة، والإبلاغ عن كل تسرب للبيانات الشخصية" } },
       { version: "0.1", date: "2026-11-05", note: first },
     ],
@@ -109,6 +114,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-BCP-001", phase: "operate",
     title: { en: "Business Continuity Plan", ar: "خطة استمرارية الأعمال" },
     versions: [
+      { version: "0.3", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } },
       { version: "0.2", date: "2026-11-09", note: catastrophic },
       { version: "0.1", date: "2026-11-05", note: first },
     ],
@@ -117,6 +123,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-KPI-001", phase: "operate", format: "xlsx",
     title: { en: "KPI and KRI Dashboard", ar: "لوحة مؤشرات الأداء والمخاطر" },
     versions: [
+      { version: "0.3", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } },
       { version: "0.2", date: "2026-11-09", note: catastrophic },
       { version: "0.1", date: "2026-11-05", note: { en: "First draft with six months of illustrative data", ar: "المسودة الأولى ببيانات توضيحية لستة أشهر" } },
     ],
@@ -124,7 +131,7 @@ export const documents: CaseDocument[] = [
   {
     id: "NAS-HBK-001", phase: "method",
     title: { en: "GRC Methodology Handbook", ar: "دليل منهجيات الحوكمة والمخاطر والالتزام" },
-    versions: [{ version: "0.1", date: "2026-11-07", note: { en: "First draft: seven chapters written, three outlined", ar: "المسودة الأولى: سبعة فصول مكتوبة وثلاثة هياكل" } }],
+    versions: [{ version: "0.2", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } }, { version: "0.1", date: "2026-11-07", note: { en: "First draft: seven chapters written, three outlined", ar: "المسودة الأولى: سبعة فصول مكتوبة وثلاثة هياكل" } }],
   },
 ];
 
