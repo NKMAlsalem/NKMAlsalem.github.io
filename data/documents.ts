@@ -39,6 +39,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-RMM-001", phase: "assess",
     title: { en: "Risk Management Methodology", ar: "منهجية إدارة المخاطر" },
     versions: [
+      { version: "0.4", date: "2026-11-10", note: { en: "Larger risk matrix scores for legibility", ar: "تكبير أرقام مصفوفة المخاطر لتحسين وضوحها" } },
       { version: "0.3", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } },
       { version: "0.2", date: "2026-11-09", note: catastrophic },
       { version: "0.1", date: "2026-11-04", note: first },
@@ -68,7 +69,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-POL-001", phase: "govern",
     title: { en: "Data Protection Policy", ar: "سياسة حماية البيانات" },
     versions: [
-      { version: "0.3", date: "2026-11-10", langs: ["ar"], note: { en: "Section 8 matched to the official ECC-2:2024 text", ar: "مطابقة القسم 8 مع النص الرسمي للضوابط الأساسية ECC-2:2024" } },
+      { version: "0.3", date: "2026-11-10", note: { en: "Section 8 matched to the official ECC-2:2024 text", ar: "مطابقة القسم 8 مع النص الرسمي للضوابط الأساسية ECC-2:2024" } },
       { version: "0.2", date: "2026-11-10", langs: ["ar"], note: { en: "Rebuilt on the full policy template, mapped to ECC and DCC, PDPL alignment added", ar: "إعادة البناء على قالب السياسة الكامل، وربط البنود بالضوابط الأساسية وضوابط البيانات، وإضافة المواءمة مع نظام حماية البيانات الشخصية" } },
       { version: "0.1", date: "2026-11-05", note: first },
     ],
@@ -77,7 +78,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-PRC-001", phase: "govern",
     title: { en: "Data Protection Procedure", ar: "إجراءات حماية البيانات" },
     versions: [
-      { version: "0.2", date: "2026-11-10", langs: ["ar"], note: { en: "References updated to the ECC-2:2024 numbering", ar: "تحديث الإحالات وفق ترقيم الإصدار 2024 من الضوابط الأساسية" } },
+      { version: "0.2", date: "2026-11-10", note: { en: "References updated to the ECC-2:2024 numbering", ar: "تحديث الإحالات وفق ترقيم الإصدار 2024 من الضوابط الأساسية" } },
       { version: "0.1", date: "2026-11-10", langs: ["ar"], note: { en: "First draft: five procedures from contract review to secure disposal", ar: "المسودة الأولى: خمسة إجراءات من مراجعة العقود إلى الإتلاف الآمن" } },
     ],
   },
@@ -85,7 +86,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-POL-002", phase: "govern",
     title: { en: "AI Usage Policy", ar: "سياسة استخدام الذكاء الاصطناعي" },
     versions: [
-      { version: "0.5", date: "2026-11-10", langs: ["ar"], note: { en: "Change-log fix, centred classification badge, new company name", ar: "تصحيح سجل التعديلات، وتوسيط شارة التصنيف، واعتماد اسم الشركة الجديد" } },
+      { version: "0.5", date: "2026-11-10", note: { en: "Change-log fix, centred classification badge, new company name", ar: "تصحيح سجل التعديلات، وتوسيط شارة التصنيف، واعتماد اسم الشركة الجديد" } },
       { version: "0.4", date: "2026-11-09", langs: ["ar"], note: { en: "New visual identity, readability, and NCA's four sharing levels", ar: "الهوية البصرية الجديدة، وتحسين القراءة، ومستويات إشارة المشاركة الأربعة المعتمدة لدى الهيئة" } },
       { version: "0.3", date: "2026-11-09", langs: ["ar"], note: { en: "Rebuilt on the full policy template; steps moved to QIS-PRC-002", ar: "إعادة البناء على قالب السياسة الكامل، ونقل الخطوات إلى QIS-PRC-002" } },
       { version: "0.2", date: "2026-11-09", langs: ["ar"], note: { en: "Classification badge, watermark and sharing signal added", ar: "إضافة شارة التصنيف والعلامة المائية وإشارة المشاركة" } },
@@ -96,7 +97,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-PRC-002", phase: "govern",
     title: { en: "AI Usage Procedure", ar: "إجراءات استخدام الذكاء الاصطناعي" },
     versions: [
-      { version: "0.3", date: "2026-11-10", langs: ["ar"], note: { en: "Centred classification badge and new company name", ar: "توسيط شارة التصنيف واعتماد اسم الشركة الجديد" } },
+      { version: "0.3", date: "2026-11-10", note: { en: "Centred classification badge and new company name", ar: "توسيط شارة التصنيف واعتماد اسم الشركة الجديد" } },
       { version: "0.2", date: "2026-11-09", langs: ["ar"], note: { en: "New visual identity, readability, and NCA's four sharing levels", ar: "الهوية البصرية الجديدة، وتحسين القراءة، ومستويات إشارة المشاركة الأربعة المعتمدة لدى الهيئة" } },
       { version: "0.1", date: "2026-11-09", langs: ["ar"], note: { en: "First draft: five procedures from request to safe shutdown", ar: "المسودة الأولى: خمسة إجراءات من الطلب إلى الإيقاف الآمن" } },
     ],
@@ -105,6 +106,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-IRP-001", phase: "operate",
     title: { en: "Incident Response Plan", ar: "خطة الاستجابة للحوادث السيبرانية" },
     versions: [
+      { version: "0.4", date: "2026-11-10", langs: ["en"], note: { en: "English layout: appendices start on their own pages", ar: "تحسين تخطيط النسخة الإنجليزية: كل ملحق يبدأ في صفحة مستقلة" } },
       { version: "0.3", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } },
       { version: "0.2", date: "2026-11-09", note: { en: "NCA deadline source updated; breach notice now covers every personal data breach", ar: "تحديث مصدر مهلة إبلاغ الهيئة، والإبلاغ عن كل تسرب للبيانات الشخصية" } },
       { version: "0.1", date: "2026-11-05", note: first },
