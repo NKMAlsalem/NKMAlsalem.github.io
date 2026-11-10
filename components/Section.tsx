@@ -8,10 +8,11 @@ export function Section({ id, children, className = "" }: { id?: string; childre
   );
 }
 
-export function SectionHead({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
+export function SectionHead({ eyebrow, title, mark, children }: { eyebrow: string; title: string; mark?: ReactNode; children?: ReactNode }) {
   return (
     <div className="mb-9 grid gap-3">
       <p className="eyebrow">{eyebrow}</p>
+      {mark}
       <h2 className="text-[clamp(1.7rem,3.2vw,2.4rem)] font-bold leading-[1.15] [:root[lang=ar]_&]:leading-[1.45]">{title}</h2>
       {children}
     </div>

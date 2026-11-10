@@ -109,3 +109,20 @@ a:focus-visible, button:focus-visible { outline: 2px solid rgb(var(--amber)); ou
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* Theme-specific logo variants */
+.on-dark { display: none; }
+:root[data-theme="dark"] .on-light { display: none; }
+:root[data-theme="dark"] .on-dark { display: inline-block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .on-light { display: none; }
+  :root:not([data-theme="light"]) .on-dark { display: inline-block; }
+}
+
+/* Version history timeline */
+.vh { list-style: none; margin: 0; padding: 0; }
+.vh li { position: relative; padding-block: 6px 12px; padding-inline-start: 24px; }
+.vh li::before { content: ""; position: absolute; inset-inline-start: 5px; top: 20px; bottom: -6px; width: 2px; background: rgb(var(--line)); }
+.vh li:last-child::before { display: none; }
+.vh li::after { content: ""; position: absolute; inset-inline-start: 0; top: 10px; width: 12px; height: 12px; border-radius: 999px; background: rgb(var(--surface)); border: 2px solid rgb(var(--line-strong)); box-sizing: border-box; }
+.vh li.current::after { background: rgb(var(--accent)); border-color: rgb(var(--accent)); }

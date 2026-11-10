@@ -5,12 +5,25 @@ import { DocumentRegister } from "./DocumentRegister";
 import { Register, Section, SectionHead } from "./Section";
 import { Reveal } from "./Reveal";
 
+const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export function CaseStudy() {
   const { t } = useLanguage();
   return (
     <Section id="case">
       <Reveal>
-        <SectionHead eyebrow={t.case.eyebrow} title={t.case.title}>
+        <SectionHead
+          eyebrow={t.case.eyebrow}
+          title={t.case.title}
+          mark={
+            <span className="inline-flex" aria-hidden="true">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`${base}/brand/qis-mark.svg`} alt="" width={48} height={48} className="on-light rounded-[10px]" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`${base}/brand/qis-glyph-paper.svg`} alt="" width={48} height={48} className="on-dark" />
+            </span>
+          }
+        >
           <div className="mt-1 flex flex-wrap gap-2">
             {t.case.chips.map((chip) => <span key={chip} className="chip">{chip}</span>)}
             <span className="chip chip-amber">{t.case.fictional}</span>

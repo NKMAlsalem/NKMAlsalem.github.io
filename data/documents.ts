@@ -5,6 +5,8 @@ export interface DocumentVersion {
   version: string;
   date: string;
   note: { en: string; ar: string };
+  /** Languages this version exists in. Defaults to both. */
+  langs?: Lang[];
 }
 
 export interface CaseDocument {
@@ -65,8 +67,21 @@ export const documents: CaseDocument[] = [
   },
   {
     id: "QIS-POL-002", phase: "govern",
-    title: { en: "AI Usage Policy and Procedure", ar: "سياسة وإجراء استخدام الذكاء الاصطناعي" },
-    versions: [{ version: "0.1", date: "2026-11-05", note: first }],
+    title: { en: "AI Usage Policy", ar: "سياسة استخدام الذكاء الاصطناعي" },
+    versions: [
+      { version: "0.4", date: "2026-11-09", langs: ["ar"], note: { en: "New visual identity, readability, and NCA's four sharing levels", ar: "الهوية البصرية الجديدة، وتحسين القراءة، ومستويات إشارة المشاركة الأربعة المعتمدة لدى الهيئة" } },
+      { version: "0.3", date: "2026-11-09", langs: ["ar"], note: { en: "Rebuilt on the full policy template; steps moved to QIS-PRC-002", ar: "إعادة البناء على قالب السياسة الكامل، ونقل الخطوات إلى QIS-PRC-002" } },
+      { version: "0.2", date: "2026-11-09", langs: ["ar"], note: { en: "Classification badge, watermark and sharing signal added", ar: "إضافة شارة التصنيف والعلامة المائية وإشارة المشاركة" } },
+      { version: "0.1", date: "2026-11-05", note: first },
+    ],
+  },
+  {
+    id: "QIS-PRC-002", phase: "govern",
+    title: { en: "AI Usage Procedure", ar: "إجراءات استخدام الذكاء الاصطناعي" },
+    versions: [
+      { version: "0.2", date: "2026-11-09", langs: ["ar"], note: { en: "New visual identity, readability, and NCA's four sharing levels", ar: "الهوية البصرية الجديدة، وتحسين القراءة، ومستويات إشارة المشاركة الأربعة المعتمدة لدى الهيئة" } },
+      { version: "0.1", date: "2026-11-09", langs: ["ar"], note: { en: "First draft: five procedures from request to safe shutdown", ar: "المسودة الأولى: خمسة إجراءات من الطلب إلى الإيقاف الآمن" } },
+    ],
   },
   {
     id: "QIS-IRP-001", phase: "operate",
@@ -104,5 +119,11 @@ export const isFinal = (v: DocumentVersion) => parseFloat(v.version) >= 1;
 export function versionFile(doc: CaseDocument, v: DocumentVersion, lang: Lang): string {
   const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   if (doc.format === "xlsx") return `${base}/docs/${doc.id}_v${v.version}.xlsx`;
-  return `${base}/docs/${doc.id}_${lang.toUpperCase()}_v${v.version}.pdf`;
+  return `${base}/docs/${doc.id}_${fileLang(v, lang).toUpperCase()}_v${v.version}.pdf`;
+}
+
+/** The language a version is shown in: the page language when it exists, otherwise the first available. */
+export function fileLang(v: DocumentVersion, lang: Lang): Lang {
+  const langs = v.langs ?? ["ar", "en"];
+  return langs.includes(lang) ? lang : langs[0];
 }
