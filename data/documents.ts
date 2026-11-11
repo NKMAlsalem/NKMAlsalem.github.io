@@ -82,7 +82,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-PRC-001", phase: "govern",
     title: { en: "Data Protection Procedure", ar: "إجراءات حماية البيانات" },
     versions: [
-      { version: "0.3", date: "2026-11-11", langs: ["ar"], note: { en: "Arabic: Arabic-Indic numerals and NCA control-number order", ar: "اعتماد الأرقام الهندية وترتيب أرقام الضوابط المتبع لدى الهيئة" } },
+      { version: "0.3", date: "2026-11-11", note: { en: "Reference to policy v0.4; Arabic uses Arabic-Indic numerals and NCA control-number order", ar: "تحديث الإحالة إلى الإصدار 0.4 من السياسة، واعتماد الأرقام الهندية في النسخة العربية" } },
       { version: "0.2", date: "2026-11-10", note: { en: "References updated to the ECC-2:2024 numbering", ar: "تحديث الإحالات وفق ترقيم الإصدار 2024 من الضوابط الأساسية" } },
       { version: "0.1", date: "2026-11-10", langs: ["ar"], note: { en: "First draft: five procedures from contract review to secure disposal", ar: "المسودة الأولى: خمسة إجراءات من مراجعة العقود إلى الإتلاف الآمن" } },
     ],
