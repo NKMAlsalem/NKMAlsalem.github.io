@@ -4,6 +4,7 @@ import { useLanguage } from "./LanguageProvider";
 import { DocumentRegister } from "./DocumentRegister";
 import { Register, Section, SectionHead } from "./Section";
 import { Reveal } from "./Reveal";
+import { QisMap } from "./QisMap";
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -42,6 +43,9 @@ export function CaseStudy() {
           <Register title={t.case.recordTitle} aside={<span className="label">QIS</span>} rows={t.case.record} />
         </Reveal>
       </div>
+      <Reveal className="mt-12">
+        <QisMap />
+      </Reveal>
     </Section>
   );
 }
