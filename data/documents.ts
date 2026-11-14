@@ -134,6 +134,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-KPI-001", phase: "operate", format: "xlsx",
     title: { en: "KPI and KRI Dashboard", ar: "لوحة مؤشرات الأداء والمخاطر" },
     versions: [
+      { version: "0.5", date: "2026-11-14", note: { en: "Arabic trends sheet reads right to left", ar: "ورقة الاتجاهات العربية من اليمين إلى اليسار" } },
       { version: "0.4", date: "2026-11-13", note: { en: "Arabic sheets: Arabic-Indic numerals and NCA control-number order", ar: "الأوراق العربية: الأرقام الهندية وترتيب أرقام الضوابط المتبع لدى الهيئة" } },
       { version: "0.3", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } },
       { version: "0.2", date: "2026-11-09", note: catastrophic },
