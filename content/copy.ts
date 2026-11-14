@@ -64,6 +64,7 @@ const en = {
     current: "Current",
     preparedBy: "Prepared by Naif Alsalem",
     arabicOnly: "Arabic only for now",
+    newerInOther: (v: string) => `Arabic has a newer version, v${v}`,
     documentCount: (n: number) => (n === 1 ? "1 document" : `${n} documents`),
   },
   platform: {
@@ -210,6 +211,7 @@ const ar: Copy = {
     current: "الحالية",
     preparedBy: "إعداد نايف السالم",
     arabicOnly: "بالعربية فقط حالياً",
+    newerInOther: (v: string) => `للنسخة الإنجليزية إصدار أحدث، v${v}`,
     documentCount: (n: number) => (n === 1 ? "وثيقة واحدة" : n === 2 ? "وثيقتان" : n <= 10 ? `${n} وثائق` : `${n} وثيقة`),
   },
   platform: {

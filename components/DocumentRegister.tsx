@@ -146,7 +146,12 @@ function DocumentCard({ doc, onOpen }: { doc: CaseDocument; onOpen: (v: Document
   const { t, lang } = useLanguage();
   const [showHistory, setShowHistory] = useState(false);
   const other: Lang = lang === "en" ? "ar" : "en";
-  const latest = doc.versions[0];
+  // Show the versions that exist in the page language; fall back to all of them only
+  // when the document has no version in that language yet.
+  const inLang = doc.versions.filter((v) => (v.langs ?? ["ar", "en"]).includes(lang));
+  const shown = inLang.length ? inLang : doc.versions;
+  const latest = shown[0];
+  const newerElsewhere = latest && doc.versions[0] !== latest ? doc.versions[0] : undefined;
   const kind = kindOf(doc);
   const author = doc.id.startsWith("NAS-");
 
@@ -186,11 +191,12 @@ function DocumentCard({ doc, onOpen }: { doc: CaseDocument; onOpen: (v: Document
       </div>
       <p className="m-0 text-sm text-muted">{latest.note[lang]}</p>
       {onlyIn && <p className="m-0 text-[13px] text-muted">{t.docs.arabicOnly}</p>}
+      {newerElsewhere && <p className="m-0 text-[13px] text-muted">{t.docs.newerInOther(newerElsewhere.version)}</p>}
       <div className="flex flex-wrap items-center gap-2">
         <Actions doc={doc} version={latest} onOpen={() => onOpen(latest)} />
       </div>
 
-      {doc.versions.length > 1 && (
+      {shown.length > 1 && (
         <div>
           <button
             type="button"
@@ -198,7 +204,7 @@ function DocumentCard({ doc, onOpen }: { doc: CaseDocument; onOpen: (v: Document
             onClick={() => setShowHistory((s) => !s)}
             className="text-[13px] font-semibold text-accent hover:text-accent-hover hover:underline"
           >
-            {showHistory ? t.docs.hideHistory : t.docs.history(doc.versions.length)}
+            {showHistory ? t.docs.hideHistory : t.docs.history(shown.length)}
           </button>
           <AnimatePresence initial={false}>
             {showHistory && (
@@ -209,7 +215,7 @@ function DocumentCard({ doc, onOpen }: { doc: CaseDocument; onOpen: (v: Document
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               >
-                {doc.versions.map((v, i) => (
+                {shown.map((v, i) => (
                   <li key={v.version} className={i === 0 ? "current" : ""}>
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="font-mono text-[13px] font-medium text-ink" dir="ltr">v{v.version}</span>
