@@ -58,6 +58,7 @@ export const documents: CaseDocument[] = [
       { version: "0.1", date: "2026-11-04", note: { en: "First draft: 20 risks scored on the 5×5 matrix", ar: "المسودة الأولى: 20 خطراً مقيّمة بمصفوفة 5×5" } },
     ],
   },
+  { id: "QIS-BIA-001", phase: "assess", planned: true, versions: [], title: { en: "Business Impact Analysis", ar: "تحليل الأثر على الأعمال" } },
   { id: "QIS-GAP-001", phase: "assess", planned: true, versions: [], title: { en: "ECC Gap Assessment", ar: "تقييم الفجوات مقابل الضوابط الأساسية" } },
   { id: "QIS-RTP-001", phase: "treat", planned: true, versions: [], title: { en: "Risk Treatment Plan", ar: "خطة معالجة المخاطر" } },
   {
