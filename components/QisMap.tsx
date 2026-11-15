@@ -61,13 +61,13 @@ const L = {
 
 const P: Record<keyof typeof people, { t: Text; s?: Text; gap?: Text }> = {
   ceo: { t: tx("Chief Executive Officer", "الرئيس التنفيذي"), s: tx("Faisal Al-Harbi · founder", "فيصل الحربي · المؤسس") },
-  cto: { t: tx("Chief Technology Officer", "الرئيس التنفيذي للتقنية"), s: tx("Reem Al-Otaibi · IT, hosting, development, security", "ريم العتيبي · التقنية والاستضافة والتطوير والأمن") },
+  cto: { t: tx("Chief Technology Officer", "الرئيسة التنفيذية للتقنية"), s: tx("Reem Al-Otaibi · IT, hosting, development, security", "ريم العتيبي · التقنية والاستضافة والتطوير والأمن") },
   sd: { t: tx("Head of Service Delivery", "رئيس تقديم الخدمات"), s: tx("Sultan Al-Dossary", "سلطان الدوسري") },
   cfo: { t: tx("Chief Financial Officer", "الرئيس التنفيذي للمالية"), s: tx("Majed Al-Qahtani", "ماجد القحطاني") },
   lead: { t: tx("Leadership and", "القيادة وتطوير"), s: tx("business development · 12", "الأعمال · 12") },
   ops: { t: tx("IT operations", "العمليات التقنية"), s: tx("and hosting · 40", "والاستضافة · 40") },
   dev: { t: tx("Development · 45", "التطوير · 45"), s: tx("+ 20 contractors", "+ 20 متعاقداً") },
-  sec: { t: tx("Cybersecurity · 3", "الأمن السيبراني · 3"), s: tx("2 engineers + GRC Lead", "مهندسان + قائد الحوكمة"), gap: tx("reports to the CTO", "يتبع الرئيس التنفيذي للتقنية") },
+  sec: { t: tx("Cybersecurity · 3", "الأمن السيبراني · 3"), s: tx("2 engineers + GRC Lead", "مهندسان + قائد الحوكمة"), gap: tx("reports to the CTO", "يتبع الرئيسة التنفيذية للتقنية") },
   ms: { t: tx("Managed services · 120", "الخدمات المُدارة · 120"), s: tx("helpdesk and remote support", "الدعم الفني والدعم عن بُعد") },
   fin: { t: tx("Finance, HR", "المالية والموارد البشرية"), s: tx("and administration · 30", "والإدارة · 30") },
 };
