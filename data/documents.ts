@@ -29,6 +29,8 @@ export const documents: CaseDocument[] = [
     id: "QIS-PRF-001", phase: "context",
     title: { en: "Company Profile and Program Scope", ar: "ملف الشركة ونطاق البرنامج" },
     versions: [
+      { version: "0.6", date: "2026-11-21", langs: ["ar"], note: { en: "Arabic: regulatory currency check; NCA private-sector controls (NCNICC-1:2025) added", ar: "مراجعة حداثة المراجع التنظيمية، وإضافة ضوابط الهيئة لجهات القطاع الخاص (NCNICC-1:2025)" } },
+      { version: "0.5", date: "2026-11-21", langs: ["en"], note: { en: "Regulatory currency check; NCA private-sector controls (NCNICC-1:2025) added", ar: "الإنجليزية: مراجعة حداثة المراجع التنظيمية، وإضافة ضوابط الهيئة لجهات القطاع الخاص" } },
       { version: "0.5", date: "2026-11-15", langs: ["ar"], note: { en: "Arabic: scope set as a shared base plus client layers, in two phases", ar: "تحديد النطاق قاعدةً مشتركة تُضاف إليها طبقات العملاء على مرحلتين" } },
       { version: "0.4", date: "2026-11-15", note: { en: "Scope set as a shared base plus client layers, delivered in two phases", ar: "اعتماد الأرقام الهندية وترتيب أرقام الضوابط المتبع لدى الهيئة" } },
       { version: "0.3", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } },
