@@ -29,6 +29,8 @@ export const documents: CaseDocument[] = [
     id: "QIS-PRF-001", phase: "context",
     title: { en: "Company Profile and Program Scope", ar: "ملف الشركة ونطاق البرنامج" },
     versions: [
+      { version: "0.7", date: "2026-11-22", langs: ["ar"], note: { en: "Arabic: Category B of NCA private-sector controls (NCNICC-1:2025) as legal floor, ECC as target", ar: "تحديد الفئة (ب) من ضوابط الهيئة لجهات القطاع الخاص حداً أدنى نظامياً، والضوابط الأساسية هدفاً" } },
+      { version: "0.6", date: "2026-11-22", langs: ["en"], note: { en: "Category B of NCA private-sector controls (NCNICC-1:2025) as legal floor, ECC as target", ar: "الإنجليزية: تحديد الفئة (ب) من ضوابط الهيئة لجهات القطاع الخاص" } },
       { version: "0.6", date: "2026-11-21", langs: ["ar"], note: { en: "Arabic: regulatory currency check; NCA private-sector controls (NCNICC-1:2025) added", ar: "مراجعة حداثة المراجع التنظيمية، وإضافة ضوابط الهيئة لجهات القطاع الخاص (NCNICC-1:2025)" } },
       { version: "0.5", date: "2026-11-21", langs: ["en"], note: { en: "Regulatory currency check; NCA private-sector controls (NCNICC-1:2025) added", ar: "الإنجليزية: مراجعة حداثة المراجع التنظيمية، وإضافة ضوابط الهيئة لجهات القطاع الخاص" } },
       { version: "0.5", date: "2026-11-15", langs: ["ar"], note: { en: "Arabic: scope set as a shared base plus client layers, in two phases", ar: "تحديد النطاق قاعدةً مشتركة تُضاف إليها طبقات العملاء على مرحلتين" } },
@@ -42,6 +44,8 @@ export const documents: CaseDocument[] = [
     id: "QIS-RMM-001", phase: "assess",
     title: { en: "Risk Management Methodology", ar: "منهجية إدارة المخاطر" },
     versions: [
+      { version: "0.7", date: "2026-11-22", langs: ["ar"], note: { en: "Arabic: NCNICC-1:2025 added to references", ar: "إضافة ضوابط الهيئة لجهات القطاع الخاص إلى المراجع" } },
+      { version: "0.6", date: "2026-11-22", langs: ["en"], note: { en: "NCNICC-1:2025 added to references", ar: "الإنجليزية: إضافة ضوابط الهيئة لجهات القطاع الخاص إلى المراجع" } },
       { version: "0.6", date: "2026-11-15", langs: ["ar"], note: { en: "Arabic: risk appetite set on the score scale", ar: "تحديد قابلية تحمّل المخاطر على مقياس الدرجة، مع مؤشرات المخاطر إنذاراً مبكراً" } },
       { version: "0.5", date: "2026-11-15", note: { en: "Risk appetite set on the score scale, with key risk indicators as early warnings", ar: "اعتماد الأرقام الهندية وترتيب أرقام الضوابط المتبع لدى الهيئة" } },
       { version: "0.4", date: "2026-11-10", note: { en: "Larger risk matrix scores for legibility", ar: "تكبير أرقام مصفوفة المخاطر لتحسين وضوحها" } },
@@ -52,6 +56,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-RR-001", phase: "assess", format: "xlsx",
     title: { en: "Risk Register", ar: "سجل المخاطر" },
     versions: [
+      { version: "0.7", date: "2026-11-22", note: { en: "NCNICC reference column (Category B) added", ar: "إضافة عمود مرجع ضوابط الهيئة لجهات القطاع الخاص (الفئة ب)" } },
       { version: "0.6", date: "2026-11-15", note: { en: "Supervisory committee named as in ECC-2:2024", ar: "توحيد تسمية اللجنة الإشرافية في النسخة الإنجليزية" } },
       { version: "0.5", date: "2026-11-14", note: { en: "Arabic read-me sheet added", ar: "إضافة ورقة «اقرأني» بالعربية" } },
       { version: "0.4", date: "2026-11-13", note: { en: "Arabic sheets: Arabic-Indic numerals and NCA control-number order", ar: "الأوراق العربية: الأرقام الهندية وترتيب أرقام الضوابط المتبع لدى الهيئة" } },
@@ -67,6 +72,8 @@ export const documents: CaseDocument[] = [
     id: "QIS-CHR-001", phase: "govern",
     title: { en: "Cybersecurity Charter and Structure", ar: "ميثاق الأمن السيبراني وهيكله التنظيمي" },
     versions: [
+      { version: "0.6", date: "2026-11-22", langs: ["ar"], note: { en: "Arabic: NCNICC-1:2025 control 1-1-1 cited", ar: "الإشارة إلى الضابط ١-١-١ من ضوابط الهيئة لجهات القطاع الخاص" } },
+      { version: "0.5", date: "2026-11-22", langs: ["en"], note: { en: "NCNICC-1:2025 control 1-1-1 cited", ar: "الإنجليزية: الإشارة إلى ضوابط الهيئة لجهات القطاع الخاص" } },
       { version: "0.5", date: "2026-11-15", langs: ["ar"], note: { en: "Arabic: conflict-of-interest rule; document-prefixed indicator codes", ar: "قاعدة تعارض المصالح لأعضاء اللجنة، وإضافة رمز الوثيقة إلى رموز المؤشرات" } },
       { version: "0.4", date: "2026-11-15", note: { en: "Conflict-of-interest rule for committee members; indicator codes prefixed with the document", ar: "اعتماد الأرقام الهندية وترتيب أرقام الضوابط المتبع لدى الهيئة" } },
       { version: "0.3", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } },
@@ -76,6 +83,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-POL-001", phase: "govern",
     title: { en: "Data Protection Policy", ar: "سياسة حماية البيانات" },
     versions: [
+      { version: "0.6", date: "2026-11-22", note: { en: "NCNICC-1:2025 controls added under 2-7 and 2-8 with Category B status", ar: "إضافة ضوابط الهيئة لجهات القطاع الخاص تحت ٢-٧ و٢-٨ مع حالتها للفئة (ب)" } },
       { version: "0.5", date: "2026-11-15", note: { en: "Indicator codes prefixed with the document; dashboard named as where they are measured", ar: "إضافة رمز الوثيقة إلى رموز المؤشرات، وتحديد لوحة المؤشرات موضعاً لقياسها" } },
       { version: "0.4", date: "2026-11-11", note: { en: "Section 8 quoted word for word from NCA's official ECC-2:2024 text; Arabic uses Arabic-Indic numerals", ar: "نقل نصوص الضوابط في القسم 8 حرفياً من النص الرسمي للهيئة، واعتماد الأرقام الهندية في النسخة العربية" } },
       { version: "0.3", date: "2026-11-10", note: { en: "Section 8 matched to the official ECC-2:2024 text", ar: "مطابقة القسم 8 مع النص الرسمي للضوابط الأساسية ECC-2:2024" } },
@@ -86,6 +94,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-PRC-001", phase: "govern",
     title: { en: "Data Protection Procedure", ar: "إجراءات حماية البيانات" },
     versions: [
+      { version: "0.5", date: "2026-11-22", note: { en: "Reference updated to policy version 0.6", ar: "تحديث الإحالة إلى الإصدار ٠٫٦ من السياسة" } },
       { version: "0.4", date: "2026-11-15", note: { en: "Reference to policy v0.5; supervisory committee named as in ECC-2:2024", ar: "تحديث الإحالة إلى الإصدار 0.5 من السياسة" } },
       { version: "0.3", date: "2026-11-11", note: { en: "Reference to policy v0.4; Arabic uses Arabic-Indic numerals and NCA control-number order", ar: "تحديث الإحالة إلى الإصدار 0.4 من السياسة، واعتماد الأرقام الهندية في النسخة العربية" } },
       { version: "0.2", date: "2026-11-10", note: { en: "References updated to the ECC-2:2024 numbering", ar: "تحديث الإحالات وفق ترقيم الإصدار 2024 من الضوابط الأساسية" } },
@@ -119,6 +128,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-IRP-001", phase: "operate",
     title: { en: "Incident Response Plan", ar: "خطة الاستجابة للحوادث السيبرانية" },
     versions: [
+      { version: "0.6", date: "2026-11-22", note: { en: "NCA notification now QIS’s own duty under NCNICC-1:2025 (2.13.1.2)", ar: "إبلاغ الهيئة واجب على الشركة نفسها وفق ضوابط الهيئة لجهات القطاع الخاص (٢-١٣-١-٢)" } },
       { version: "0.5", date: "2026-11-15", note: { en: "Breach declaration: decided within 2 hours, and the 24-hour notice runs from it", ar: "إعلان الخرق: يُبتّ فيه خلال ساعتين، وتُحتسب مهلة الـ 24 ساعة من وقته" } },
       { version: "0.4", date: "2026-11-11", note: { en: "English: appendices start on their own pages. Arabic: Arabic-Indic numerals and NCA control-number order", ar: "الإنجليزية: كل ملحق يبدأ في صفحة مستقلة. العربية: الأرقام الهندية وترتيب أرقام الضوابط المتبع لدى الهيئة" } },
       { version: "0.3", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } },
@@ -129,6 +139,8 @@ export const documents: CaseDocument[] = [
     id: "QIS-BCP-001", phase: "operate",
     title: { en: "Business Continuity Plan", ar: "خطة استمرارية الأعمال" },
     versions: [
+      { version: "0.6", date: "2026-11-22", langs: ["ar"], note: { en: "Arabic: NCNICC-1:2025 backup and restore-test controls cited", ar: "الإشارة إلى ضوابط النسخ الاحتياطي وفحص الاستعادة في ضوابط الهيئة لجهات القطاع الخاص" } },
+      { version: "0.5", date: "2026-11-22", langs: ["en"], note: { en: "NCNICC-1:2025 backup and restore-test controls cited", ar: "الإنجليزية: الإشارة إلى ضوابط النسخ الاحتياطي في ضوابط الهيئة لجهات القطاع الخاص" } },
       { version: "0.5", date: "2026-11-15", langs: ["ar"], note: { en: "Arabic: recovery targets provisional until the business impact analysis", ar: "أهداف التعافي مؤقتة حتى يحددها تحليل الأثر على الأعمال" } },
       { version: "0.4", date: "2026-11-15", note: { en: "Recovery targets marked provisional until the business impact analysis", ar: "اعتماد الأرقام الهندية وترتيب أرقام الضوابط المتبع لدى الهيئة" } },
       { version: "0.3", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } },
@@ -150,6 +162,8 @@ export const documents: CaseDocument[] = [
     id: "NAS-HBK-001", phase: "method",
     title: { en: "GRC Methodology Handbook", ar: "دليل منهجيات الحوكمة والمخاطر والالتزام" },
     versions: [
+      { version: "0.4", date: "2026-11-22", langs: ["ar"], note: { en: "Arabic: NCNICC added to frameworks risks map to", ar: "إضافة ضوابط الهيئة لجهات القطاع الخاص إلى الأطر التي تُربط بها المخاطر" } },
+      { version: "0.3", date: "2026-11-22", langs: ["en"], note: { en: "NCNICC added to frameworks risks map to", ar: "الإنجليزية: إضافة ضوابط الهيئة لجهات القطاع الخاص" } },
       { version: "0.3", date: "2026-11-11", langs: ["ar"], note: { en: "Arabic: Arabic-Indic numerals and NCA control-number order", ar: "اعتماد الأرقام الهندية وترتيب أرقام الضوابط المتبع لدى الهيئة" } },{ version: "0.2", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } }, { version: "0.1", date: "2026-11-07", note: { en: "First draft: seven chapters written, three outlined", ar: "المسودة الأولى: سبعة فصول مكتوبة وثلاثة هياكل" } }],
   },
 ];
