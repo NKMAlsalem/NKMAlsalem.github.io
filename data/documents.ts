@@ -72,6 +72,8 @@ export const documents: CaseDocument[] = [
     id: "QIS-CHR-001", phase: "govern",
     title: { en: "Cybersecurity Charter and Structure", ar: "ميثاق الأمن السيبراني وهيكله التنظيمي" },
     versions: [
+      { version: "0.7", date: "2026-11-23", langs: ["ar"], note: { en: "Arabic: ECC subdomain numbers checked against the official text", ar: "مطابقة أرقام المكوّنات الفرعية مع النص الرسمي" } },
+      { version: "0.6", date: "2026-11-23", langs: ["en"], note: { en: "ECC subdomain numbers checked against the official text", ar: "الإنجليزية: مطابقة أرقام المكوّنات الفرعية مع النص الرسمي" } },
       { version: "0.6", date: "2026-11-22", langs: ["ar"], note: { en: "Arabic: NCNICC-1:2025 control 1-1-1 cited", ar: "الإشارة إلى الضابط ١-١-١ من ضوابط الهيئة لجهات القطاع الخاص" } },
       { version: "0.5", date: "2026-11-22", langs: ["en"], note: { en: "NCNICC-1:2025 control 1-1-1 cited", ar: "الإنجليزية: الإشارة إلى ضوابط الهيئة لجهات القطاع الخاص" } },
       { version: "0.5", date: "2026-11-15", langs: ["ar"], note: { en: "Arabic: conflict-of-interest rule; document-prefixed indicator codes", ar: "قاعدة تعارض المصالح لأعضاء اللجنة، وإضافة رمز الوثيقة إلى رموز المؤشرات" } },
@@ -83,6 +85,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-POL-001", phase: "govern",
     title: { en: "Data Protection Policy", ar: "سياسة حماية البيانات" },
     versions: [
+      { version: "0.7", date: "2026-11-23", note: { en: "Clause 9.3.1 corrected: SDAIA notice applies to breaches that may cause harm", ar: "تصحيح البند ٩.٣.١: يقتصر إبلاغ سدايا على التسرب الذي من شأنه الإضرار" } },
       { version: "0.6", date: "2026-11-22", note: { en: "NCNICC-1:2025 controls added under 2-7 and 2-8 with Category B status", ar: "إضافة ضوابط الهيئة لجهات القطاع الخاص تحت ٢-٧ و٢-٨ مع حالتها للفئة (ب)" } },
       { version: "0.5", date: "2026-11-15", note: { en: "Indicator codes prefixed with the document; dashboard named as where they are measured", ar: "إضافة رمز الوثيقة إلى رموز المؤشرات، وتحديد لوحة المؤشرات موضعاً لقياسها" } },
       { version: "0.4", date: "2026-11-11", note: { en: "Section 8 quoted word for word from NCA's official ECC-2:2024 text; Arabic uses Arabic-Indic numerals", ar: "نقل نصوص الضوابط في القسم 8 حرفياً من النص الرسمي للهيئة، واعتماد الأرقام الهندية في النسخة العربية" } },
@@ -94,6 +97,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-PRC-001", phase: "govern",
     title: { en: "Data Protection Procedure", ar: "إجراءات حماية البيانات" },
     versions: [
+      { version: "0.6", date: "2026-11-23", note: { en: "Reference updated to policy version 0.7", ar: "تحديث الإحالة إلى الإصدار ٠٫٧ من السياسة" } },
       { version: "0.5", date: "2026-11-22", note: { en: "Reference updated to policy version 0.6", ar: "تحديث الإحالة إلى الإصدار ٠٫٦ من السياسة" } },
       { version: "0.4", date: "2026-11-15", note: { en: "Reference to policy v0.5; supervisory committee named as in ECC-2:2024", ar: "تحديث الإحالة إلى الإصدار 0.5 من السياسة" } },
       { version: "0.3", date: "2026-11-11", note: { en: "Reference to policy v0.4; Arabic uses Arabic-Indic numerals and NCA control-number order", ar: "تحديث الإحالة إلى الإصدار 0.4 من السياسة، واعتماد الأرقام الهندية في النسخة العربية" } },
@@ -128,6 +132,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-IRP-001", phase: "operate",
     title: { en: "Incident Response Plan", ar: "خطة الاستجابة للحوادث السيبرانية" },
     versions: [
+      { version: "0.7", date: "2026-11-23", note: { en: "NCA reporting duty matched with ECC 2.13.3.3–4; NCA incident email added as a channel", ar: "مطابقة واجب إبلاغ الهيئة مع الضوابط الأساسية، وإضافة بريد الهيئة للإبلاغ قناةً" } },
       { version: "0.6", date: "2026-11-22", note: { en: "NCA notification now QIS’s own duty under NCNICC-1:2025 (2.13.1.2)", ar: "إبلاغ الهيئة واجب على الشركة نفسها وفق ضوابط الهيئة لجهات القطاع الخاص (٢-١٣-١-٢)" } },
       { version: "0.5", date: "2026-11-15", note: { en: "Breach declaration: decided within 2 hours, and the 24-hour notice runs from it", ar: "إعلان الخرق: يُبتّ فيه خلال ساعتين، وتُحتسب مهلة الـ 24 ساعة من وقته" } },
       { version: "0.4", date: "2026-11-11", note: { en: "English: appendices start on their own pages. Arabic: Arabic-Indic numerals and NCA control-number order", ar: "الإنجليزية: كل ملحق يبدأ في صفحة مستقلة. العربية: الأرقام الهندية وترتيب أرقام الضوابط المتبع لدى الهيئة" } },
