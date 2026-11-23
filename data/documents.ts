@@ -31,6 +31,8 @@ export const documents: CaseDocument[] = [
     id: "QIS-PRF-001", phase: "context",
     title: { en: "Company Profile and Program Scope", ar: "ملف الشركة ونطاق البرنامج" },
     versions: [
+      { version: "0.8", date: "2026-11-23", langs: ["ar"], note: { en: "Arabic: security baseline as found, with its four root causes", ar: "إضافة خط الأساس الأمني كما وُجد، وأسبابه الجذرية الأربعة" } },
+      { version: "0.7", date: "2026-11-23", langs: ["en"], note: { en: "Security baseline as found, with its four root causes", ar: "الإنجليزية: إضافة خط الأساس الأمني وأسبابه الجذرية الأربعة" } },
       { version: "0.7", date: "2026-11-22", langs: ["ar"], note: { en: "Arabic: Category B of NCA private-sector controls (NCNICC-1:2025) as legal floor, ECC as target", ar: "تحديد الفئة (ب) من ضوابط الهيئة لجهات القطاع الخاص حداً أدنى نظامياً، والضوابط الأساسية هدفاً" } },
       { version: "0.6", date: "2026-11-22", langs: ["en"], note: { en: "Category B of NCA private-sector controls (NCNICC-1:2025) as legal floor, ECC as target", ar: "الإنجليزية: تحديد الفئة (ب) من ضوابط الهيئة لجهات القطاع الخاص" } },
       { version: "0.6", date: "2026-11-21", langs: ["ar"], note: { en: "Arabic: regulatory currency check; NCA private-sector controls (NCNICC-1:2025) added", ar: "مراجعة حداثة المراجع التنظيمية، وإضافة ضوابط الهيئة لجهات القطاع الخاص (NCNICC-1:2025)" } },
@@ -72,6 +74,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-GAP-001", phase: "assess",
     title: { en: "Gap Assessment (ECC-2:2024 and NCNICC-1:2025)", ar: "تقييم الفجوات (الضوابط الأساسية وضوابط القطاع الخاص)" },
     versions: [
+      { version: "0.3", date: "2026-11-23", note: { en: "Ratings based on the security baseline in the company profile; no assumptions left", ar: "بناء التقييمات على خط الأساس الأمني في ملف الشركة، دون افتراضات متبقية" } },
       { version: "0.2", date: "2026-11-23", note: { en: "Owners given as roles, with the responsible unit for each action", ar: "تحديد المالك بالدور مع الوحدة المسؤولة عن كل إجراء" } },
       { version: "0.1", date: "2026-11-23", note: { en: "First assessment of every ECC-2:2024 control and the NCNICC Category B controls: 21% and 26%", ar: "أول تقييم لجميع الضوابط الأساسية وضوابط القطاع الخاص للفئة (ب): ٢١٪ و٢٦٪" } },
     ],
@@ -80,6 +83,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-GAP-001 · Annex", fileId: "QIS-GAP-001-Annex", phase: "assess", format: "xlsx",
     title: { en: "Gap Assessment annex: every control rated", ar: "ملحق تقييم الفجوات: تقييم كل ضابط" },
     versions: [
+      { version: "0.3", date: "2026-11-23", note: { en: "Assumptions sheet removed; every basis cites the profile's security baseline", ar: "حذف ورقة الافتراضات، وكل أساس يحيل إلى خط الأساس الأمني في ملف الشركة" } },
       { version: "0.2", date: "2026-11-23", note: { en: "Owner as role, plus a responsible unit column", ar: "المالك بالدور، وإضافة عمود الوحدة المسؤولة" } },
       { version: "0.1", date: "2026-11-23", note: { en: "175 items with basis, gap, action, owner, severity; NCNICC view; 43 assumptions to confirm", ar: "١٧٥ بنداً بالأساس والفجوة والإجراء والمالك والخطورة، وعرض ضوابط القطاع الخاص، و٤٣ افتراضاً للتحقق" } },
     ],
@@ -185,6 +189,8 @@ export const documents: CaseDocument[] = [
     id: "NAS-HBK-001", phase: "method",
     title: { en: "GRC Methodology Handbook", ar: "دليل منهجيات الحوكمة والمخاطر والالتزام" },
     versions: [
+      { version: "0.5", date: "2026-11-23", langs: ["ar"], note: { en: "Arabic: chapter 11, a briefing on the QIS scenario and its root causes", ar: "الفصل 11: إحاطة بسيناريو الشركة وأسبابه الجذرية" } },
+      { version: "0.4", date: "2026-11-23", langs: ["en"], note: { en: "Chapter 11: a briefing on the QIS scenario and its root causes", ar: "الإنجليزية: الفصل 11، إحاطة بسيناريو الشركة وأسبابه الجذرية" } },
       { version: "0.4", date: "2026-11-22", langs: ["ar"], note: { en: "Arabic: NCNICC added to frameworks risks map to", ar: "إضافة ضوابط الهيئة لجهات القطاع الخاص إلى الأطر التي تُربط بها المخاطر" } },
       { version: "0.3", date: "2026-11-22", langs: ["en"], note: { en: "NCNICC added to frameworks risks map to", ar: "الإنجليزية: إضافة ضوابط الهيئة لجهات القطاع الخاص" } },
       { version: "0.3", date: "2026-11-11", langs: ["ar"], note: { en: "Arabic: Arabic-Indic numerals and NCA control-number order", ar: "اعتماد الأرقام الهندية وترتيب أرقام الضوابط المتبع لدى الهيئة" } },{ version: "0.2", date: "2026-11-10", note: { en: "New visual identity, classification and sharing markings", ar: "الهوية البصرية الجديدة، ووسوم التصنيف وإشارة المشاركة" } }, { version: "0.1", date: "2026-11-07", note: { en: "First draft: seven chapters written, three outlined", ar: "المسودة الأولى: سبعة فصول مكتوبة وثلاثة هياكل" } }],
