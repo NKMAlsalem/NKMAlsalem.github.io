@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { useLanguage } from "./LanguageProvider";
+import { GAP, GAP_TOTAL } from "../data/gap";
 
 /* Map of QIS as the company profile (QIS-PRF-001, sections 3 to 6 and 9) describes it:
    people and reporting lines, QIS's own systems, and how each service line reaches the clients. */
@@ -57,6 +59,44 @@ const L = {
     dev: tx("Software development and maintenance", "تطوير البرمجيات وصيانتها"),
     gap: tx("Weakness recorded in the profile", "نقطة ضعف مذكورة في الملف"),
   },
+  modeProfile: tx("Company profile", "ملف الشركة"),
+  modeGap: tx("Gap assessment", "تقييم الفجوات"),
+  gapCaption: tx(
+    "The same map with the gap assessment (QIS-GAP-001) laid over it. Each chip is an ECC-2:2024 subdomain, placed on the part of QIS that owns it, and coloured by its compliance.",
+    "الخريطة نفسها وفوقها نتائج تقييم الفجوات (QIS-GAP-001). كل شارة مكوّن فرعي من الضوابط الأساسية ECC-2:2024، موضوعة على الجزء المسؤول عنه في الشركة، وملوّنة حسب نسبة الالتزام.",
+  ),
+  bands: [tx("Below 25% compliant", "التزام أقل من 25%"), tx("25% to 59%", "من 25% إلى 59%"), tx("60% or more", "60% فأكثر")],
+  overall: (ecc: number, nc: number) => tx(`Overall: ${ecc}% of ECC-2:2024 · ${nc}% of NCNICC Category B`, `الإجمالي: ${ecc}% من الضوابط الأساسية · ${nc}% من ضوابط القطاع الخاص للفئة (ب)`),
+  allSystems: tx("All systems", "كل الأنظمة"),
+};
+
+/* Where each ECC-2:2024 subdomain sits on the map, by the part of QIS that owns it. */
+const NODE_SUBS: Record<string, string[]> = {
+  ceo: ["1-1", "1-2", "1-4", "1-7", "1-8"],
+  sec: ["1-3", "1-5", "1-10", "2-13"],
+  fin: ["1-9", "4-1"],
+  dev: ["1-6", "2-11"],
+  ops: ["2-9", "3-1"],
+  identity: ["2-2"],
+  endpoints: ["2-1", "2-3", "2-6"],
+  server: ["2-10", "2-14"],
+  remote: ["2-5"],
+  devsys: ["2-15"],
+  tools: ["2-4", "2-12"],
+  hub: ["2-7", "2-8"],
+  cloud: ["4-2"],
+};
+const bandOf = (score: number | null) => (score === null ? 3 : score < 25 ? 0 : score < 60 ? 1 : 2);
+const BAND_CLS = [
+  { fill: "fill-crit-soft", stroke: "stroke-crit", text: "fill-crit" },
+  { fill: "fill-amber-soft", stroke: "stroke-amber", text: "fill-amber" },
+  { fill: "fill-accent-soft", stroke: "stroke-accent", text: "fill-accent" },
+  { fill: "fill-sunken", stroke: "stroke-line-strong", text: "fill-muted" },
+];
+const nodeScore = (subs: string[]) => {
+  let c = 0, p = 0, n = 0;
+  subs.forEach((s) => { c += GAP[s].c; p += GAP[s].p; n += GAP[s].n; });
+  return c + p + n ? Math.round((100 * (c + p / 2)) / (c + p + n)) : 0;
 };
 
 const P: Record<keyof typeof people, { t: Text; s?: Text; gap?: Text }> = {
@@ -99,6 +139,9 @@ const LINE = {
 export function QisMap() {
   const { lang } = useLanguage();
   const ar = lang === "ar";
+  const [mode, setMode] = useState<"profile" | "gap">("profile");
+  const gap = mode === "gap";
+  const num = (s: string) => s; // the site keeps Western digits
   const X = (b: Box) => (ar ? W - b.x - b.w : b.x);
   const cx = (b: Box) => X(b) + b.w / 2;
   const t = (v: Text) => v[lang];
@@ -115,11 +158,42 @@ export function QisMap() {
     <text x={ar ? W - 24 : 24} y={y} textAnchor="start" fontSize={12} fontWeight={600} className="fill-muted" style={{ fontFamily: "var(--font-label)", letterSpacing: ar ? 0 : "0.04em" }} direction={ar ? "rtl" : "ltr"}>{s}</text>
   );
 
+  /* chips for the subdomains a node owns, centred on (x, y) */
+  const chips = (subs: string[], x: number, y: number, key: string) => {
+    const w = 32, g = 4, total = subs.length * w + (subs.length - 1) * g;
+    const order = ar ? [...subs].reverse() : subs;
+    return order.map((s, i) => {
+      const r = GAP[s], c = BAND_CLS[bandOf(r.score)];
+      const left = x - total / 2 + i * (w + g);
+      return (
+        <g key={`${key}-${s}`}>
+          <title>{`${s} ${r[lang]} · ${r.score === null ? (ar ? "لا ينطبق" : "not applicable") : `${r.score}%`}`}</title>
+          <rect x={left} y={y} width={w} height={17} rx={8.5} className={`${c.fill} ${c.stroke}`} strokeWidth={1} />
+          <text x={left + w / 2} y={y + 12.5} textAnchor="middle" fontSize={10} fontWeight={700} className={c.text} style={{ fontFamily: "var(--font-mono)" }}>{num(s)}</text>
+        </g>
+      );
+    });
+  };
+  const pct = (subs: string[], x: number, y: number) => {
+    const v = nodeScore(subs), c = BAND_CLS[bandOf(v)];
+    return <text x={x} y={y} textAnchor="middle" fontSize={11} fontWeight={700} className={c.text} style={{ fontFamily: "var(--font-body)" }}>{num(`${v}%`)}</text>;
+  };
+
   return (
     <figure className="card m-0 p-4 sm:p-6">
-      <figcaption className="mb-3 grid gap-1">
-        <strong className="font-display text-lg text-ink">{t(L.title)}</strong>
-        <span className="text-sm text-muted">{t(L.caption)}</span>
+      <figcaption className="mb-3 grid gap-2">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <strong className="font-display text-lg text-ink">{t(L.title)}</strong>
+          <div role="tablist" aria-label={t(L.title)} className="inline-flex rounded-full border border-line-strong p-0.5 text-sm">
+            {(["profile", "gap"] as const).map((m) => (
+              <button key={m} role="tab" aria-selected={mode === m} onClick={() => setMode(m)}
+                className={`rounded-full px-3 py-1 font-label ${mode === m ? "bg-accent text-on-accent" : "text-muted hover:text-ink"}`}>
+                {t(m === "profile" ? L.modeProfile : L.modeGap)}
+              </button>
+            ))}
+          </div>
+        </div>
+        <span className="text-sm text-muted">{t(gap ? L.gapCaption : L.caption)}</span>
       </figcaption>
       <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
         <svg viewBox={`0 0 ${W} ${H}`} className="block h-auto w-full min-w-[720px]" role="img" aria-label={t(L.title)} direction={ar ? "rtl" : "ltr"}>
@@ -130,18 +204,29 @@ export function QisMap() {
 
           {/* reporting lines */}
           {(["cto", "sd", "cfo", "lead"] as const).map((k) => <path key={k} d={elbow(people.ceo, people[k])} className="fill-none stroke-line-strong" strokeWidth={1.5} />)}
-          {(["ops", "dev", "sec"] as const).map((k) => <path key={k} d={elbow(people.cto, people[k])} className={`fill-none ${k === "sec" ? "stroke-crit" : "stroke-line-strong"}`} strokeWidth={k === "sec" ? 2 : 1.5} />)}
+          {(["ops", "dev", "sec"] as const).map((k) => <path key={k} d={elbow(people.cto, people[k])} className={`fill-none ${k === "sec" && !gap ? "stroke-crit" : "stroke-line-strong"}`} strokeWidth={k === "sec" && !gap ? 2 : 1.5} />)}
           <path d={elbow(people.sd, people.ms)} className="fill-none stroke-line-strong" strokeWidth={1.5} />
           <path d={elbow(people.cfo, people.fin)} className="fill-none stroke-line-strong" strokeWidth={1.5} />
 
           {(Object.keys(people) as (keyof typeof people)[]).map((k) => {
             const b = people[k], d = P[k], exec = ["ceo", "cto", "sd", "cfo"].includes(k);
+            const owned = gap ? NODE_SUBS[k] : undefined;
+            if (owned) {
+              return (
+                <g key={k}>
+                  <rect x={X(b)} y={b.y} width={b.w} height={b.h} rx={8} className={exec ? "fill-accent-soft stroke-accent" : "fill-surface stroke-line-strong"} strokeWidth={1} />
+                  {label(cx(b), b.y + 19, t(d.t), "fill-ink", exec ? 13 : 11.5, 600)}
+                  {chips(owned, cx(b), b.y + b.h - 25, k)}
+                </g>
+              );
+            }
+            const showGap = d.gap && !gap;
             return (
               <g key={k}>
-                <rect x={X(b)} y={b.y} width={b.w} height={b.h} rx={8} className={exec ? "fill-accent-soft stroke-accent" : `fill-surface ${d.gap ? "stroke-crit" : "stroke-line-strong"}`} strokeWidth={d.gap ? 2 : 1} />
-                {label(cx(b), b.y + (d.gap ? 18 : 23), t(d.t), "fill-ink", exec ? 13 : 11.5, 600)}
-                {d.s && label(cx(b), b.y + (d.gap ? 33 : 40), t(d.s), "fill-muted", 11)}
-                {d.gap && label(cx(b), b.y + 49, t(d.gap), "fill-crit", 10.5, 600)}
+                <rect x={X(b)} y={b.y} width={b.w} height={b.h} rx={8} className={exec ? "fill-accent-soft stroke-accent" : `fill-surface ${showGap ? "stroke-crit" : "stroke-line-strong"}`} strokeWidth={showGap ? 2 : 1} />
+                {label(cx(b), b.y + (showGap ? 18 : 23), t(d.t), "fill-ink", exec ? 13 : 11.5, 600)}
+                {d.s && label(cx(b), b.y + (showGap ? 33 : 40), t(d.s), "fill-muted", 11)}
+                {showGap && label(cx(b), b.y + 49, t(d.gap!), "fill-crit", 10.5, 600)}
               </g>
             );
           })}
@@ -150,9 +235,25 @@ export function QisMap() {
           {band(352, t(L.hubBand))}
           <rect x={X(hub)} y={hub.y} width={hub.w} height={hub.h} rx={10} className="fill-sunken stroke-line" />
           <text x={ar ? X(hub) + hub.w - 14 : X(hub) + 14} y={hub.y + 22} textAnchor="start" fontSize={11.5} fontWeight={600} className="fill-muted" style={{ fontFamily: "var(--font-label)" }} direction={ar ? "rtl" : "ltr"}>{t(L.hq)}</text>
+          {gap && (
+            <g>
+              <text x={ar ? X(hub) + 200 : X(hub) + hub.w - 200} y={hub.y + 22} textAnchor={ar ? "start" : "end"} fontSize={11} fontWeight={600} className="fill-muted" style={{ fontFamily: "var(--font-label)" }} direction={ar ? "rtl" : "ltr"}>{t(L.allSystems)}</text>
+              {chips(NODE_SUBS.hub, ar ? X(hub) + 80 : X(hub) + hub.w - 120, hub.y + 9, "hub")}
+            </g>
+          )}
           {(Object.keys(sys) as (keyof typeof sys)[]).map((k) => {
             const b = sys[k], d = S[k];
             let y = b.y + 22;
+            if (gap) {
+              return (
+                <g key={k}>
+                  <rect x={X(b)} y={b.y} width={b.w} height={b.h} rx={8} className="fill-surface stroke-line-strong" strokeWidth={1} />
+                  {label(cx(b), b.y + 24, t(d.t), "fill-ink", 13, 600)}
+                  {pct(NODE_SUBS[k], cx(b), b.y + 44)}
+                  {chips(NODE_SUBS[k], cx(b), b.y + 56, k)}
+                </g>
+              );
+            }
             return (
               <g key={k}>
                 <rect x={X(b)} y={b.y} width={b.w} height={b.h} rx={8} className={`fill-surface ${d.gaps ? "stroke-crit" : "stroke-line-strong"}`} strokeWidth={d.gaps ? 1.75 : 1} />
@@ -188,7 +289,7 @@ export function QisMap() {
           {/* cloud provider: outside QIS */}
           <rect x={X(cloud)} y={cloud.y} width={cloud.w} height={cloud.h} rx={8} className="fill-amber-soft stroke-amber" />
           {label(cx(cloud), cloud.y + 25, ar ? "مزوّد الخدمات السحابية" : "Cloud provider", "fill-ink", 13, 600)}
-          {label(cx(cloud), cloud.y + 44, ar ? "مرخّص من هيئة الاتصالات · داخل المملكة" : "CST-licensed, inside the Kingdom", "fill-muted", 11)}
+          {gap ? chips(NODE_SUBS.cloud, cx(cloud), cloud.y + 33, "cloud") : label(cx(cloud), cloud.y + 44, ar ? "مرخّص من هيئة الاتصالات · داخل المملكة" : "CST-licensed, inside the Kingdom", "fill-muted", 11)}
 
           {/* clients */}
           {band(clientY + 140, t(L.clientsBand))}
@@ -220,7 +321,21 @@ export function QisMap() {
               </g>
             );
           })}
-          <text x={ar ? W - 24 : 24} y={988} fontSize={11.5} fontWeight={600} className="fill-crit" textAnchor="start" direction={ar ? "rtl" : "ltr"} style={{ fontFamily: "var(--font-body)" }}>{`▲ ${t(L.legend.gap)}`}</text>
+          {!gap && <text x={ar ? W - 24 : 24} y={988} fontSize={11.5} fontWeight={600} className="fill-crit" textAnchor="start" direction={ar ? "rtl" : "ltr"} style={{ fontFamily: "var(--font-body)" }}>{`▲ ${t(L.legend.gap)}`}</text>}
+          {gap && (
+            <g>
+              {L.bands.map((bt, i) => {
+                const lx = ar ? W - 24 - i * 190 : 24 + i * 190, c = BAND_CLS[i];
+                return (
+                  <g key={i}>
+                    <rect x={ar ? lx - 26 : lx} y={977} width={26} height={14} rx={7} className={`${c.fill} ${c.stroke}`} />
+                    <text x={ar ? lx - 34 : lx + 34} y={988} fontSize={11.5} className="fill-ink" textAnchor="start" direction={ar ? "rtl" : "ltr"} style={{ fontFamily: "var(--font-body)" }}>{num(t(bt))}</text>
+                  </g>
+                );
+              })}
+              <text x={ar ? 24 : W - 24} y={988} fontSize={11.5} fontWeight={700} className="fill-ink" textAnchor="end" direction={ar ? "rtl" : "ltr"} style={{ fontFamily: "var(--font-body)" }}>{num(t(L.overall(GAP_TOTAL.ecc, GAP_TOTAL.nc)))}</text>
+            </g>
+          )}
         </svg>
       </div>
     </figure>

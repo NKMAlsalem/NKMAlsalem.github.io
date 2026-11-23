@@ -14,6 +14,8 @@ export interface CaseDocument {
   phase: Phase;
   title: { en: string; ar: string };
   format?: "pdf" | "xlsx";
+  /** File name stem when it differs from the ID (an annex shown beside its report). */
+  fileId?: string;
   planned?: boolean;
   /** Newest first. A version of "1.0" or higher is treated as final. */
   versions: DocumentVersion[];
@@ -65,7 +67,20 @@ export const documents: CaseDocument[] = [
     ],
   },
   { id: "QIS-BIA-001", phase: "assess", planned: true, versions: [], title: { en: "Business Impact Analysis", ar: "تحليل الأثر على الأعمال" } },
-  { id: "QIS-GAP-001", phase: "assess", planned: true, versions: [], title: { en: "ECC Gap Assessment", ar: "تقييم الفجوات مقابل الضوابط الأساسية" } },
+  {
+    id: "QIS-GAP-001", phase: "assess",
+    title: { en: "Gap Assessment (ECC-2:2024 and NCNICC-1:2025)", ar: "تقييم الفجوات (الضوابط الأساسية وضوابط القطاع الخاص)" },
+    versions: [
+      { version: "0.1", date: "2026-11-23", note: { en: "First assessment of every ECC-2:2024 control and the NCNICC Category B controls: 21% and 26%", ar: "أول تقييم لجميع الضوابط الأساسية وضوابط القطاع الخاص للفئة (ب): ٢١٪ و٢٦٪" } },
+    ],
+  },
+  {
+    id: "QIS-GAP-001 · Annex", fileId: "QIS-GAP-001-Annex", phase: "assess", format: "xlsx",
+    title: { en: "Gap Assessment annex: every control rated", ar: "ملحق تقييم الفجوات: تقييم كل ضابط" },
+    versions: [
+      { version: "0.1", date: "2026-11-23", note: { en: "175 items with basis, gap, action, owner, severity; NCNICC view; 43 assumptions to confirm", ar: "١٧٥ بنداً بالأساس والفجوة والإجراء والمالك والخطورة، وعرض ضوابط القطاع الخاص، و٤٣ افتراضاً للتحقق" } },
+    ],
+  },
   { id: "QIS-RTP-001", phase: "treat", planned: true, versions: [], title: { en: "Risk Treatment Plan", ar: "خطة معالجة المخاطر" } },
   { id: "QIS-STD-001", phase: "govern", planned: true, versions: [], title: { en: "Technical Security Standards", ar: "المعايير التقنية للأمن السيبراني" } },
   {
@@ -177,8 +192,9 @@ export const isFinal = (v: DocumentVersion) => parseFloat(v.version) >= 1;
 
 export function versionFile(doc: CaseDocument, v: DocumentVersion, lang: Lang): string {
   const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-  if (doc.format === "xlsx") return `${base}/docs/${doc.id}_v${v.version}.xlsx`;
-  return `${base}/docs/${doc.id}_${fileLang(v, lang).toUpperCase()}_v${v.version}.pdf`;
+  const stem = doc.fileId ?? doc.id;
+  if (doc.format === "xlsx") return `${base}/docs/${stem}_v${v.version}.xlsx`;
+  return `${base}/docs/${stem}_${fileLang(v, lang).toUpperCase()}_v${v.version}.pdf`;
 }
 
 /** The language a version is shown in: the page language when it exists, otherwise the first available. */
