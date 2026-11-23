@@ -58,6 +58,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-RR-001", phase: "assess", format: "xlsx",
     title: { en: "Risk Register", ar: "سجل المخاطر" },
     versions: [
+      { version: "0.8", date: "2026-11-23", note: { en: "Risk owners given as roles, with a responsible unit column", ar: "تحديد مالك الخطر بالدور، وإضافة عمود الوحدة المسؤولة" } },
       { version: "0.7", date: "2026-11-22", note: { en: "NCNICC reference column (Category B) added", ar: "إضافة عمود مرجع ضوابط الهيئة لجهات القطاع الخاص (الفئة ب)" } },
       { version: "0.6", date: "2026-11-15", note: { en: "Supervisory committee named as in ECC-2:2024", ar: "توحيد تسمية اللجنة الإشرافية في النسخة الإنجليزية" } },
       { version: "0.5", date: "2026-11-14", note: { en: "Arabic read-me sheet added", ar: "إضافة ورقة «اقرأني» بالعربية" } },
@@ -71,6 +72,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-GAP-001", phase: "assess",
     title: { en: "Gap Assessment (ECC-2:2024 and NCNICC-1:2025)", ar: "تقييم الفجوات (الضوابط الأساسية وضوابط القطاع الخاص)" },
     versions: [
+      { version: "0.2", date: "2026-11-23", note: { en: "Owners given as roles, with the responsible unit for each action", ar: "تحديد المالك بالدور مع الوحدة المسؤولة عن كل إجراء" } },
       { version: "0.1", date: "2026-11-23", note: { en: "First assessment of every ECC-2:2024 control and the NCNICC Category B controls: 21% and 26%", ar: "أول تقييم لجميع الضوابط الأساسية وضوابط القطاع الخاص للفئة (ب): ٢١٪ و٢٦٪" } },
     ],
   },
@@ -78,6 +80,7 @@ export const documents: CaseDocument[] = [
     id: "QIS-GAP-001 · Annex", fileId: "QIS-GAP-001-Annex", phase: "assess", format: "xlsx",
     title: { en: "Gap Assessment annex: every control rated", ar: "ملحق تقييم الفجوات: تقييم كل ضابط" },
     versions: [
+      { version: "0.2", date: "2026-11-23", note: { en: "Owner as role, plus a responsible unit column", ar: "المالك بالدور، وإضافة عمود الوحدة المسؤولة" } },
       { version: "0.1", date: "2026-11-23", note: { en: "175 items with basis, gap, action, owner, severity; NCNICC view; 43 assumptions to confirm", ar: "١٧٥ بنداً بالأساس والفجوة والإجراء والمالك والخطورة، وعرض ضوابط القطاع الخاص، و٤٣ افتراضاً للتحقق" } },
     ],
   },
